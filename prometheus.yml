@@ -4,19 +4,19 @@ global:
 scrape_configs:
   - job_name: 'prometheus'
     static_configs:
-      - targets: ['localhost:9090']
+      - targets: ['http://devsecopstp1.eastus.cloudapp.azure.com:9090']
 
   - job_name: 'node_exporter'
     static_configs:
-      - targets: ['localhost:5110']  # Updated port for Node Exporter
+      - targets: ['http://devsecopstp1.eastus.cloudapp.azure.com:5110']  # Updated port for Node Exporter
 
   - job_name: 'cadvisor'
     static_configs:
-      - targets: ['localhost:5080']  # Updated port for cAdvisor
+      - targets: ['http://devsecopstp1.eastus.cloudapp.azure.com:5080']  # Updated port for cAdvisor
 
   - job_name: 'kube_state_metrics'
     static_configs:
-      - targets: ['localhost:8081']
+      - targets: ['http://devsecopstp1.eastus.cloudapp.azure.com:8081']
 
 
 rule_files:

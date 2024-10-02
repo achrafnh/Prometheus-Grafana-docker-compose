@@ -50,6 +50,10 @@ services:
     container_name: kube_state_metrics
     ports:
       - "8081:8081" # Default Kube-State-Metrics port
+    volumes:
+      - kubeconfig:/root/.kube/config # Mount the kubeconfig file
+    environment:
+      - KUBECONFIG=/root/.kube/config
     networks:
       - monitoring
 
