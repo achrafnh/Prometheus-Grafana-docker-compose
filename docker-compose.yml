@@ -32,31 +32,31 @@ services:
     networks:
       - monitoring
 
-  cadvisor:
-    image: google/cadvisor:latest
-    container_name: cadvisor
-    ports:
-      - "5080:8080"
-    privileged: true # Add this line to allow cAdvisor more access
-    volumes:
-      - /:/rootfs:ro
-      - /var/run:/var/run:ro
-      - /sys:/sys:ro
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    networks:
-      - monitoring
+  # cadvisor:
+  #   image: google/cadvisor:latest
+  #   container_name: cadvisor
+  #   ports:
+  #     - "5080:8080"
+  #   privileged: true # Add this line to allow cAdvisor more access
+  #   volumes:
+  #     - /:/rootfs:ro
+  #     - /var/run:/var/run:ro
+  #     - /sys:/sys:ro
+  #     - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  #   networks:
+  #     - monitoring
 
-  kube_state_metrics:
-    image: quay.io/coreos/kube-state-metrics:v1.9.8
-    container_name: kube_state_metrics
-    ports:
-      - "8081:8081"
-    volumes:
-      - ./kubeconfig:/root/.kube/config # Updated to bind mount the kubeconfig file
-    environment:
-      - KUBECONFIG=/root/.kube/config # Set the KUBECONFIG environment variable
-    networks:
-      - monitoring
+  # kube_state_metrics:
+  #   image: quay.io/coreos/kube-state-metrics:v1.9.8
+  #   container_name: kube_state_metrics
+  #   ports:
+  #     - "8081:8081"
+  #   volumes:
+  #     - ./kubeconfig:/root/.kube/config # Updated to bind mount the kubeconfig file
+  #   environment:
+  #     - KUBECONFIG=/root/.kube/config # Set the KUBECONFIG environment variable
+  #   networks:
+  #     - monitoring
 
 volumes:
   prometheus_data:
