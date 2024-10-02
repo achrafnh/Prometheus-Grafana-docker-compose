@@ -43,3 +43,15 @@ Kube-State-Metrics: http://localhost:5081/metrics
 Configure Grafana:
 
 Add Prometheus as a data source in Grafana by navigating to http://localhost:5300 and configuring the URL as http://prometheus:5090.
+
+
+
+
+To view all metrics for Kubernetes, VMs (hosts), and Docker containers using Prometheus and Grafana, follow these steps:
+
+Step 1: Ensure Metrics Scraping Is Set Up
+Ensure that Prometheus is scraping the metrics for:
+
+Kubernetes (via kube-state-metrics and API server)
+VM/host (via Node Exporter)
+Docker containers (via cAdvisor)
