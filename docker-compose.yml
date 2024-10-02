@@ -8,7 +8,7 @@ services:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
       - prometheus_data:/prometheus
     ports:
-      - "9090:5090" # External port 5090 mapped to internal port 9090
+      - "9090:9090" # Default Prometheus port
     networks:
       - monitoring
 
@@ -16,7 +16,7 @@ services:
     image: grafana/grafana:latest
     container_name: grafana
     ports:
-      - "3000:5300" # External port 5300 mapped to internal port 3000
+      - "3000:3000" # Default Grafana port
     volumes:
       - grafana_data:/var/lib/grafana
     depends_on:
@@ -28,7 +28,7 @@ services:
     image: prom/node-exporter:latest
     container_name: node_exporter
     ports:
-      - "9100:5100" # External port 5100 mapped to internal port 9100
+      - "9100:9100" # Default Node Exporter port
     networks:
       - monitoring
 
@@ -36,7 +36,7 @@ services:
     image: google/cadvisor:latest
     container_name: cadvisor
     ports:
-      - "8080:5080" # External port 5080 mapped to internal port 8080
+      - "8080:8080" # Default cAdvisor port
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:ro
@@ -49,7 +49,7 @@ services:
     image: quay.io/coreos/kube-state-metrics:v1.9.8
     container_name: kube_state_metrics
     ports:
-      - "8081:5081" # External port 5081 mapped to internal port 8081
+      - "8081:8081" # Default Kube-State-Metrics port
     networks:
       - monitoring
 
