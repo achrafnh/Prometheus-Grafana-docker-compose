@@ -15,3 +15,13 @@ If you're running Kubernetes, you also need to set up Prometheus Node Exporter a
 
 1. Install Prometheus Node Exporter and Kube-State-Metrics via Helm
 Install Node Exporter and Kube-State-Metrics in your Kubernetes cluster using Helm:
+
+
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+
+# Install Node Exporter
+helm install node-exporter prometheus-community/prometheus-node-exporter
+
+# Install Kube-State-Metrics
+helm install kube-state-metrics prometheus-community/kube-state-metrics
