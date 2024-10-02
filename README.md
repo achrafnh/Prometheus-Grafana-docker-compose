@@ -55,3 +55,42 @@ Ensure that Prometheus is scraping the metrics for:
 Kubernetes (via kube-state-metrics and API server)
 VM/host (via Node Exporter)
 Docker containers (via cAdvisor)
+===========================================
+
+
+
+Step 3: Add Prometheus as a Data Source
+Once logged into Grafana, navigate to Configuration (gear icon) > Data Sources.
+Click on Add Data Source.
+Select Prometheus.
+Set the URL to http://prometheus:5090 (adjust if using a different port).
+Click Save & Test to ensure Prometheus is properly connected.
+Step 4: Import Pre-built Grafana Dashboards
+Grafana provides many pre-built dashboards for monitoring Kubernetes, Docker, and host metrics. Here’s how you can import them:
+
+1. Kubernetes Monitoring Dashboard
+Go to Dashboards (four squares icon) > Manage.
+Click Import.
+Use Dashboard ID: 315 (for the Kubernetes cluster monitoring dashboard).
+Dashboard Link: Grafana Kubernetes Monitoring
+Click Load, and select your Prometheus data source when prompted.
+This dashboard will show you metrics for your Kubernetes cluster, such as pod health, node CPU/memory usage, and network traffic.
+2. Node Exporter (Host/VM Monitoring) Dashboard
+Go to Dashboards > Manage > Import.
+Use Dashboard ID: 1860 (for Node Exporter Full).
+Dashboard Link: Grafana Node Exporter Full Dashboard
+Click Load and select your Prometheus data source.
+This dashboard provides detailed information about your host system (VM/physical machine), such as CPU, memory, disk I/O, and network usage.
+3. Docker Monitoring Dashboard
+Go to Dashboards > Manage > Import.
+Use Dashboard ID: 14282 (for cAdvisor Exporter).
+Dashboard Link: Grafana Docker Monitoring Dashboard
+Click Load and select your Prometheus data source.
+This dashboard will provide detailed metrics about your Docker containers, such as CPU usage, memory usage, and container health.
+Step 5: Customize and Explore Dashboards
+Once you have imported these dashboards, you will be able to:
+
+Kubernetes Metrics: See metrics such as pod resource usage, node health, network traffic, and more.
+VM/Host Metrics: View system-level metrics like CPU usage, memory consumption, disk I/O, and network statistics from your VMs or physical servers.
+Docker Container Metrics: Monitor the performance and health of your Docker containers, including CPU and memory usage per container.
+You can also create custom dashboards in Grafana by selecting specific metrics from Prometheus using the query language PromQL.
