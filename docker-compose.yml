@@ -37,11 +37,12 @@ services:
     container_name: cadvisor
     ports:
       - "5080:8080"
+    privileged: true # Add this line to allow cAdvisor more access
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:ro
       - /sys:/sys:ro
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro # Ensure this line is present
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     networks:
       - monitoring
 
