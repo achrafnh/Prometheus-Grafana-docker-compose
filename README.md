@@ -55,9 +55,12 @@ Ensure that Prometheus is scraping the metrics for:
 Kubernetes (via kube-state-metrics and API server)
 VM/host (via Node Exporter)
 Docker containers (via cAdvisor)
-===========================================
 
 
+--------------------------------------------------------------------
+
+Step 2: Access Grafana
+Open Grafana by navigating to http://localhost:5300 (or the custom port you configured). Log in with the default credentials (admin/admin).
 
 Step 3: Add Prometheus as a Data Source
 Once logged into Grafana, navigate to Configuration (gear icon) > Data Sources.
