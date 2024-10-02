@@ -28,7 +28,7 @@ services:
     image: prom/node-exporter:latest
     container_name: node_exporter
     ports:
-      - "9100:9100" # Default Node Exporter port
+      - "5110:9100" # Changed external port for Node Exporter
     networks:
       - monitoring
 
@@ -36,7 +36,7 @@ services:
     image: google/cadvisor:latest
     container_name: cadvisor
     ports:
-      - "8080:8080" # Default cAdvisor port
+      - "5080:8080" # Changed external port for cAdvisor
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:ro
