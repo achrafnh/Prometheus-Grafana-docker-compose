@@ -1,3 +1,10 @@
+git clone https://github.com/achrafnh/Prometheus-Grafana-docker-compose.git
+
+cd Prometheus-Grafana-docker-compose/
+
+docker-compose up -d
+
+
 # Prometheus-Grafana-docker-compose
 
 To monitor Docker containers, Kubernetes, and host metrics together using a single docker-compose setup, you need to integrate various exporters and configure Prometheus to scrape them.
