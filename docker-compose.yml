@@ -60,3 +60,7 @@ services:
 volumes:
   prometheus_data:
   grafana_data:
+
+networks:
+  monitoring: # Define the monitoring network
+    driver: bridge
