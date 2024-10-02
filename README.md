@@ -4,7 +4,6 @@ cd Prometheus-Grafana-docker-compose/
 
 docker-compose up -d
 
-
 # Prometheus-Grafana-docker-compose
 
 To monitor Docker containers, Kubernetes, and host metrics together using a single docker-compose setup, you need to integrate various exporters and configure Prometheus to scrape them.
@@ -44,9 +43,6 @@ Configure Grafana:
 
 Add Prometheus as a data source in Grafana by navigating to http://localhost:5300 and configuring the URL as http://prometheus:5090.
 
-
-
-
 To view all metrics for Kubernetes, VMs (hosts), and Docker containers using Prometheus and Grafana, follow these steps:
 
 Step 1: Ensure Metrics Scraping Is Set Up
@@ -56,8 +52,7 @@ Kubernetes (via kube-state-metrics and API server)
 VM/host (via Node Exporter)
 Docker containers (via cAdvisor)
 
-
---------------------------------------------------------------------
+---
 
 Step 2: Access Grafana
 Open Grafana by navigating to http://localhost:5300 (or the custom port you configured). Log in with the default credentials (admin/admin).
@@ -72,28 +67,34 @@ Step 4: Import Pre-built Grafana Dashboards
 Grafana provides many pre-built dashboards for monitoring Kubernetes, Docker, and host metrics. Here’s how you can import them:
 
 1. Kubernetes Monitoring Dashboard
-Go to Dashboards (four squares icon) > Manage.
-Click Import.
-Use Dashboard ID: 315 (for the Kubernetes cluster monitoring dashboard).
-Dashboard Link: Grafana Kubernetes Monitoring
-Click Load, and select your Prometheus data source when prompted.
-This dashboard will show you metrics for your Kubernetes cluster, such as pod health, node CPU/memory usage, and network traffic.
+   Go to Dashboards (four squares icon) > Manage.
+   Click Import.
+   Use Dashboard ID: 315 (for the Kubernetes cluster monitoring dashboard).
+   Dashboard Link: Grafana Kubernetes Monitoring
+   Click Load, and select your Prometheus data source when prompted.
+   This dashboard will show you metrics for your Kubernetes cluster, such as pod health, node CPU/memory usage, and network traffic.
 2. Node Exporter (Host/VM Monitoring) Dashboard
-Go to Dashboards > Manage > Import.
-Use Dashboard ID: 1860 (for Node Exporter Full).
-Dashboard Link: Grafana Node Exporter Full Dashboard
-Click Load and select your Prometheus data source.
-This dashboard provides detailed information about your host system (VM/physical machine), such as CPU, memory, disk I/O, and network usage.
+   Go to Dashboards > Manage > Import.
+   Use Dashboard ID: 1860 (for Node Exporter Full).
+   Dashboard Link: Grafana Node Exporter Full Dashboard
+   Click Load and select your Prometheus data source.
+   This dashboard provides detailed information about your host system (VM/physical machine), such as CPU, memory, disk I/O, and network usage.
 3. Docker Monitoring Dashboard
-Go to Dashboards > Manage > Import.
-Use Dashboard ID: 14282 (for cAdvisor Exporter).
-Dashboard Link: Grafana Docker Monitoring Dashboard
-Click Load and select your Prometheus data source.
-This dashboard will provide detailed metrics about your Docker containers, such as CPU usage, memory usage, and container health.
-Step 5: Customize and Explore Dashboards
-Once you have imported these dashboards, you will be able to:
+   Go to Dashboards > Manage > Import.
+   Use Dashboard ID: 14282 (for cAdvisor Exporter).
+   Dashboard Link: Grafana Docker Monitoring Dashboard
+   Click Load and select your Prometheus data source.
+   This dashboard will provide detailed metrics about your Docker containers, such as CPU usage, memory usage, and container health.
+   Step 5: Customize and Explore Dashboards
+   Once you have imported these dashboards, you will be able to:
 
 Kubernetes Metrics: See metrics such as pod resource usage, node health, network traffic, and more.
 VM/Host Metrics: View system-level metrics like CPU usage, memory consumption, disk I/O, and network statistics from your VMs or physical servers.
 Docker Container Metrics: Monitor the performance and health of your Docker containers, including CPU and memory usage per container.
 You can also create custom dashboards in Grafana by selecting specific metrics from Prometheus using the query language PromQL.
+
+Import Dashboards: You can find pre-configured dashboards for Node Exporter, cAdvisor, and Kubernetes in the Grafana dashboard library. For example:
+
+Node Exporter Full (ID: 1860)
+cAdvisor Exporter (ID: 14282)
+Kubernetes Cluster Monitoring (ID: 8588)
