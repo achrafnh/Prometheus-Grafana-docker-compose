@@ -8,3 +8,10 @@ Grafana: Visualizes the metrics.
 Node Exporter: Provides host system metrics (CPU, memory, disk, network).
 cAdvisor: Monitors Docker containers.
 Kube-State-Metrics (optional): Monitors the state of Kubernetes objects.
+
+
+Step 3: Kubernetes Setup
+If you're running Kubernetes, you also need to set up Prometheus Node Exporter and Kube-State-Metrics inside your Kubernetes cluster.
+
+1. Install Prometheus Node Exporter and Kube-State-Metrics via Helm
+Install Node Exporter and Kube-State-Metrics in your Kubernetes cluster using Helm:
