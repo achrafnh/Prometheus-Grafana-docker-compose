@@ -51,16 +51,18 @@ services:
     container_name: kube_state_metrics
     ports:
       - "8881:8081"
-    command:
-      [
-        "kube-state-metrics",
-        "--apiserver=https://10.0.0.4:6443",
-        "--tls-ca-file=/etc/ssl/certs/ca.crt",
-      ]
+    command: ["kube-state-metrics", "--apiserver=https://10.0.0.4:6443"]
     volumes:
-      - ./ca.crt:/etc/ssl/certs/ca.crt # Mount the CA certificate
+      - ./ca.crt:/usr/local/share/ca-certificates/ca.crt # Mount the CA certificate
     networks:
       - monitoring
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        cp /usr/local/share/ca-certificates/ca.crt /etc/ssl/certs/ && \
+        update-ca-certificates && \
+        exec kube-state-metrics --apiserver=https://10.0.0.4:6443
     logging:
       driver: "json-file"
       options:
