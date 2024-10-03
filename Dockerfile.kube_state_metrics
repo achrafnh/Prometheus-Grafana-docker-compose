@@ -1,0 +1,7 @@
+FROM quay.io/coreos/kube-state-metrics:v1.9.8
+
+# Copy the CA certificate into the container
+COPY ca.crt /usr/local/share/ca-certificates/ca.crt
+
+# Update the CA certificates
+RUN update-ca-certificates
