@@ -55,7 +55,7 @@ services:
       - ./config:/root/.kube/config
     environment:
       - KUBECONFIG=/root/.kube/config
-    command: ["kube-state-metrics", "--kubeconfig=./config"] # Pass the kubeconfig directly
+    command: ["kube-state-metrics", "--kubeconfig=/root/.kube/config"] # Pass the kubeconfig directly
     networks:
       - monitoring
     logging:
