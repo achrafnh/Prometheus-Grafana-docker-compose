@@ -46,21 +46,21 @@ services:
     networks:
       - monitoring
 
-  kube_state_metrics:
-    build:
-      context: .
-      dockerfile: Dockerfile.kube_state_metrics
-    container_name: kube_state_metrics
-    ports:
-      - "8881:8081"
-    command: ["kube-state-metrics", "--apiserver=https://10.0.0.4:6443"]
-    networks:
-      - monitoring
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
+  # kube_state_metrics:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.kube_state_metrics
+  #   container_name: kube_state_metrics
+  #   ports:
+  #     - "8881:8081"
+  #   command: ["kube-state-metrics", "--apiserver=https://10.0.0.4:6443"]
+  #   networks:
+  #     - monitoring
+  #   logging:
+  #     driver: "json-file"
+  #     options:
+  #       max-size: "10m"
+  #       max-file: "3"
 
 volumes:
   prometheus_data:
