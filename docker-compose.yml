@@ -51,11 +51,14 @@ services:
     container_name: kube_state_metrics
     ports:
       - "8881:8081"
-    command: [
+    command:
+      [
         "kube-state-metrics",
         "--apiserver=https://10.0.0.4:6443",
-        "--kubeconfig=",
-      ] # Use API server and empty kubeconfig
+        "--tls-ca-file=/etc/ssl/certs/ca.crt",
+      ]
+    volumes:
+      - ./ca.crt:/etc/ssl/certs/ca.crt # Mount the CA certificate
     networks:
       - monitoring
     logging:
