@@ -57,6 +57,12 @@ services:
       - KUBECONFIG=/root/.kube/config # Set the KUBECONFIG environment variable
     networks:
       - monitoring
+    restart: unless-stopped # Automatically restart the container if it fails
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
 volumes:
   prometheus_data:
